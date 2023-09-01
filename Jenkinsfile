@@ -22,8 +22,8 @@ agent any
 			steps {
 				//sh 'node --max_old_space_size=256 node_modules/@angular/cli/bin/ng build --prod'
 				//sh 'npm test'
-				sh "npm run build"
-				//sh "npm run build --prod"
+				//sh "npm run build"
+				sh "npm run build --prod"
 				//sh 'npm cache clean --force'
 				// sh 'npm update'
 				// sh 'ng build'
