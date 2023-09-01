@@ -20,7 +20,7 @@ agent any
 			}*/
 		stage('test'){
 		 steps{
-		  "scripts": {
+		  script {
 		    "build": "export NODE_OPTIONS=--openssl-legacy-provider; ng build"
 		  }
 		}
