@@ -2,8 +2,8 @@
 FROM node:14
 WORKDIR /usr/src/app
 COPY package*.json ./
-RUN npm install -g yarn
-RUN npm install
+#RUN npm install -g yarn
+#RUN npm install
 COPY ./dist/hello-world-app .
 EXPOSE 4200
 CMD ["npm", "start"]
