@@ -18,11 +18,17 @@ agent any
 				sh 'npm run test-headless'
 				}
 			}*/
+		stage('test'){
+		 steps{
+		  "scripts": {
+		    "build": "export NODE_OPTIONS=--openssl-legacy-provider; ng build"
+		  }
+		}
+		}	
 		stage('Build') {
 			steps {
 				//sh 'node --max_old_space_size=256 node_modules/@angular/cli/bin/ng build --prod'
 				//sh 'npm test'
-				sh "build": "export NODE_OPTIONS=--openssl-legacy-provider; ng build"
 				sh "npm run build"
 				//sh "npm run build --prod"
 				//sh 'npm cache clean --force'
