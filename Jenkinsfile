@@ -20,24 +20,17 @@ agent any
 			}*/	
 		stage('Build') {
 			steps {
-				//sh 'node --max_old_space_size=256 node_modules/@angular/cli/bin/ng build --prod'
-				//sh 'npm test'
 				//sh "npm run build"
 				sh "npm run build --prod"
-				//sh 'npm cache clean --force'
-				// sh 'npm update'
-				// sh 'ng build'
-				// sh 'npm build --prod'
-				//sh 'npm run ng -- build --prod'
 				}
 			}
-		stage('copy'){
-			steps{
-				sh 'cp -r /var/lib/jenkins/workspace/Angular-pipeline/src/* /usr/share/nginx/html'
-				//sh 'cp -R dist/* /var/www/html'
-				//sh 'pm2 restart all'
-			}
-		}
+      stage('Docker image build') {
+            steps {
+                sh 'docker build -t angular .'
+                sh 'docker tag angular maheshparde/angular-repo:${BUILD_NUMBER}'
+            }
+        }
+
 	}	   
 post{
 always {
